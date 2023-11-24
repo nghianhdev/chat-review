@@ -34,6 +34,9 @@ cli
   .option('--target [target]', 'review files', {
     default: /\.(j|t)sx?$/,
   })
+  .option('--projectFramework [projectFramework]', 'project framework', {
+    default: '',
+  })
   .action(
     async (options: {
       chatgpt: string;
@@ -44,7 +47,8 @@ cli
       token: string;
       project: string | number;
       mr: string | number;
-      target: string
+      target: string;
+      projectFramework: string;
     }) => {
       const {
         host,
@@ -56,6 +60,7 @@ cli
         language,
         model,
         target,
+        projectFramework,
       } = options;
       try {
         run({
@@ -69,8 +74,9 @@ cli
           chatgptConfig: {
             apiKey,
             language,
+            projectFramework,
             model,
-            proxyHost
+            proxyHost,            
           },
         });
       } catch (error) {

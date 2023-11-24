@@ -6,6 +6,7 @@ import { ChatGPTConfig } from './types';
 
 export default class ChatGPT {
   private language: string;
+  private startPromt: string;
   private request: AxiosInstance;
 
   constructor(config: ChatGPTConfig) {
@@ -25,12 +26,13 @@ export default class ChatGPT {
       },
     });
     this.language = config.language || 'Vietnamese';
+    this.startPromt = config.projectFramework ? `I'm working on a ${config.projectFramework} project and ` : '';
   }
 
   private generatePrompt = (patch: string) => {
     const answerLanguage = `Answer me in ${this.language},`;
 
-    return `Bellow is the gitlab code patch, please help me do a brief code review,${answerLanguage} if any bug risk and improvement suggestion are welcome
+    return `${this.startPromt}bellow is the gitlab code patch, please help me do a brief code review,${answerLanguage} if any bug risk and improvement suggestion are welcome
     ${patch}
     `;
   };
