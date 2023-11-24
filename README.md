@@ -39,7 +39,8 @@ ChatGPT is a core CLI tool, including the following instructions:
 - `--project`: GitLab project ID.
 - `--mr`: GitLab Merge Request ID.
 - `--model`: ChatGPT model type, default is `gpt-3.5-turbo`.
-- `--language`: The language type of ChatGPT, the default is Chinese.
+- `--language`: The language type of ChatGPT, the default is Vietnamese.
+- `--projectFramework`: The framework type of project, the default is blank.
 - `--host`: GitLab access address, the default is `https://gitlab.com`.
 - `--proxyHost`: ChatGPT API host, the default is `https://api.openai.com`.
 - `--target`: GitLab Review file, default is /\.(j|t)sx?$/
