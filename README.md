@@ -1,9 +1,9 @@
-# @koofe/chat-review
+# @nghianhdev/chat-review
 
 ## Install
 
 ```sh
-npm i @koofe/chat-review
+npm i @nghianhdev/chat-review
 ```
 
 ## Usage
@@ -11,7 +11,7 @@ npm i @koofe/chat-review
 ### Node.js
 
 ```js
-import review from '@koofe/chat-review';
+import review from '@nghianhdev/chat-review';
 
 review({
   gitlabConfig: {
@@ -32,21 +32,21 @@ review({
 chat-review --chatgpt sk-xxxxxxxxx --token 'glpat-xxxxxx' --project 200 --mr 2001
 ```
 
-通过 ChatGPT 进行代码审核的 CLI 工具，主要包含以下几个命令选项：
+ChatGPT is a core CLI tool, including the following instructions:
 
-- `--chatgpt`：ChatGPT 的 API Token。
-- `--token`：GitLab 的访问 Token。
-- `--project`：GitLab 项目 ID。
-- `--mr`：GitLab Merge Request ID。
-- `--model`：ChatGPT 的模型类型，默认为 `gpt-3.5-turbo`。
-- `--language`：ChatGPT 的语言类型，默认为中文。
-- `--host`：GitLab 的访问地址，默认为 `https://gitlab.com`。
-- `--proxyHost`：ChatGPT API host, 默认是 `https://api.openai.com`。
-- `--target`：GitLab Review 的文件，默认为 /\.(j|t)sx?$/
+- `--chatgpt`: API Token of ChatGPT.
+- `--token`: GitLab access token.
+- `--project`: GitLab project ID.
+- `--mr`: GitLab Merge Request ID.
+- `--model`: ChatGPT model type, default is `gpt-3.5-turbo`.
+- `--language`: The language type of ChatGPT, the default is Chinese.
+- `--host`: GitLab access address, the default is `https://gitlab.com`.
+- `--proxyHost`: ChatGPT API host, the default is `https://api.openai.com`.
+- `--target`: GitLab Review file, default is /\.(j|t)sx?$/
 
 ### CI
 
-在 Gitlab CI/CD 中设置 CHATGPT_KEY、GITLAB_TOKEN 变量，`.gitlab-ci.yml` 如下：
+In Gitlab CI/CD configuration CHATGPT_KEY, GITLAB_TOKEN change, `.gitlab-ci.yml` as below:
 
 ```yml
 stages:
@@ -56,7 +56,7 @@ Code Review:
   stage: merge-request
   image: node:latest
   script:
-    - npm i @koofe/chat-review -g
+    - npm i @nghianhdev/chat-review -g
     - echo "$CI_MERGE_REQUEST_PROJECT_ID" 
     - echo "$CI_MERGE_REQUEST_IID"
     - chat-review run --chatgpt "$CHATGPT_KEY" --token "$GITLAB_TOKEN" --project "$CI_MERGE_REQUEST_PROJECT_ID" --mr "$CI_MERGE_REQUEST_IID"

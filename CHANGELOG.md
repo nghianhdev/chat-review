@@ -1,4 +1,4 @@
-# @koofe/chat-review
+# @nghianhdev/chat-review
 
 ## 0.0.3
 

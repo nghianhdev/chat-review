@@ -23,7 +23,7 @@ Code Review:
   stage: merge-request
   image: node:latest
   script:
-    - npm i @koofe/chat-review -g
+    - npm i @nghianhdev/chat-review -g
     - echo "$CI_MERGE_REQUEST_PROJECT_ID" 
     - echo "$CI_MERGE_REQUEST_IID"
     - chat-review run --chatgpt "$CHATGPT_KEY" --token "$GITLAB_TOKEN" --project "$CI_MERGE_REQUEST_PROJECT_ID" --mr "$CI_MERGE_REQUEST_IID"
