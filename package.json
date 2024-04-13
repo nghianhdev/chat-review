@@ -54,7 +54,7 @@
       "import/default": 0
     }
   },
-  "packageManager": "pnpm@7.26.2",
+  "packageManager": "pnpm@8.15.7",
   "pnpm": {
     "overrides": {}
   },
